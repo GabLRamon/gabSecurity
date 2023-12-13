@@ -13,13 +13,26 @@
 
     <hr>
 
-    <p>
-        <a th:href="@{/leaders}">Leadership Meeting</a> (Only for manager peeps)
-        <br><br>
-        <a th:href="@{/systems}">Systems</a> (Only for ADMINS)
-    </p>
+    <div sec:authorize="hasRole ('MANAGER')">
+        <p>
 
-    <hr>
+           <a th:href="@{/leaders}">Leadership Meeting</a> (Only for manager peeps)
+           <hr>
+
+        </p>
+
+    </div>
+
+    <div sec:authorize="hasRole ('ADMIN')">
+        <p>
+
+            <a th:href="@{/systems}">Systems</a> (Only for ADMINS)
+            <hr>
+
+        </p>
+
+    </div>
+
 
     <p>
         Logged User:
